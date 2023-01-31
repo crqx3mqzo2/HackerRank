@@ -1,13 +1,35 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class PlusMinus {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 
-		int[] numbers = { -4, 3, -9, 0, 4, 1 };
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+		String strings = bufferedReader.readLine();
+		String strings2 = bufferedReader.readLine();
+		
+		String[] arrTemp = strings2.replaceAll("\\s+", " ").split(" ");
+
+//		System.out.println(Arrays.toString(arrTemp));
+
+//		int[] numbers = { -4 3 -9 0 4 1 };
+		int[] numbers = Stream.of(arrTemp).mapToInt(Integer::parseInt).toArray();
+		
+//		System.out.println(Arrays.toString(numbers));
+
+		List<Integer> arr = new ArrayList<>();
 
 		String[] result = calculate(numbers);
 		for (int i = 0; i < result.length; i++) {
+			int arrItem = Integer.parseInt(arrTemp[i]);
+			arr.add(arrItem);
 			System.out.println(result[i]);
 		}
 	}
