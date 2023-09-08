@@ -1,37 +1,32 @@
-import java.io.*;
+import java.util.Scanner;
 
 public class ArraySum {
-	
+
 	static int simpleArraySum(int[] ar) {
-		
-		int[] array = ar;
 		int sum = 0;
-		for(int i=0; i<array.length; i++) {
-			sum += array[i];
+		for (int num : ar) {
+			sum += num;
 		}
-		System.out.println(sum);
 		return sum;
+	}
 
-    }
-    
-    public static void main(String[] args) throws IOException {
-        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+	public static void main(String[] args) {
+		try (Scanner scanner = new Scanner(System.in)) {
+			int arCount = Integer.parseInt(scanner.nextLine().trim());
+			int[] ar = new int[arCount];
 
-        int arCount = 2; //Integer.parseInt(scanner.nextLine().trim());
-        int[] ar = new int[arCount];
+			String[] arItems = scanner.nextLine().split(" ");
 
-        String[] arItems = {"1","2"};
+			for (int i = 0; i < arCount; i++) {
+				int arItem = Integer.parseInt(arItems[i].trim());
+				ar[i] = arItem;
+			}
 
-        for (int arItr = 0; arItr < arCount; arItr++) {
-            int arItem = Integer.parseInt(arItems[arItr].trim());
-            ar[arItr] = arItem;
-        }
-
-        int result = simpleArraySum(ar);
-        System.out.println(result);
-        
-//        bufferedWriter.write(String.valueOf(result));
-//        bufferedWriter.newLine();
-//        bufferedWriter.close();
-    }
+			int result = simpleArraySum(ar);
+			System.out.println(result);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

@@ -3,7 +3,6 @@ import java.util.List;
 
 public class DiagonalDifference {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		List<List<Integer>> matrix = Arrays.asList(Arrays.asList(11, 2, 4), Arrays.asList(4, 5, 6),
 				Arrays.asList(10, 8, -12));
@@ -26,7 +25,7 @@ public class DiagonalDifference {
 
 		return Math.abs(leftToRightSum - rightToLeftSum);
 
-	} // end diagonalDifference method
+	}
 
 	public static void printMatrix(List<List<Integer>> m) {
 
@@ -37,5 +36,5 @@ public class DiagonalDifference {
 			System.out.println();
 		} // end outer for loop
 
-	} // end printMatrix method
+	}
 }
